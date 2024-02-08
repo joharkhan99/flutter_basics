@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,6 +15,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String buttonText = "Click Me";
+  int bottomNavIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +28,31 @@ class _MyAppState extends State<MyApp> {
             titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
           ),
           body: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  buttonText = "I was clicked";
-                });
-              },
-              child: Text(buttonText),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          buttonText = "I was clicked";
+                        });
+                      },
+                      child: Text(buttonText),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          buttonText = "I was clicked";
+                        });
+                      },
+                      child: Text(buttonText),
+                    )
+                  ],
+                )
+              ],
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
@@ -41,14 +62,24 @@ class _MyAppState extends State<MyApp> {
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: 'Search',
+                icon: Icon(Icons.settings),
+                label: 'Settings',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person, color: Colors.red, size: 30),
+                icon: Icon(Icons.person),
                 label: 'Profile',
               )
             ],
+            selectedLabelStyle: const TextStyle(
+              color: Colors.deepPurple,
+              fontSize: 20,
+            ),
+            currentIndex: bottomNavIndex,
+            onTap: (index) {
+              setState(() {
+                bottomNavIndex = index;
+              });
+            },
           )),
     );
   }
