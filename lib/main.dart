@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String buttonText = "Click Me";
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +25,15 @@ class MyApp extends StatelessWidget {
             titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
           ),
           body: Center(
-              child: ElevatedButton(
-                  onPressed: () {}, child: const Text("Click Me"))),
+            child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  buttonText = "I was clicked";
+                });
+              },
+              child: Text(buttonText),
+            ),
+          ),
           bottomNavigationBar: BottomNavigationBar(
             items: const [
               BottomNavigationBarItem(
