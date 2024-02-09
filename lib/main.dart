@@ -97,52 +97,51 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.amber.shade200,
-        appBar: AppBar(
-          backgroundColor: Colors.amber.shade800,
-          title: Text("My First App"),
-          titleTextStyle: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-          leading: Icon(
-            Icons.menu,
-            size: 30,
-            color: Colors.white,
-          ),
-          actions: [
-            Icon(
-              Icons.search,
+          // backgroundColor: Colors.amber.shade200,
+          appBar: AppBar(
+            backgroundColor: Colors.amber.shade800,
+            title: Text("My First App"),
+            titleTextStyle: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+            leading: Icon(
+              Icons.menu,
               size: 30,
               color: Colors.white,
             ),
-          ],
-        ),
-        body: Center(
-          child: Container(
-            height: 300,
-            width: 300,
-            decoration: BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            padding: EdgeInsets.all(20),
-            // child: Text(
-            //   "Hello, I am Johar Khan",
-            //   style: TextStyle(
-            //     fontSize: 20,
-            //     fontWeight: FontWeight.bold,
-            //     color: Colors.white,
-            //   ),
-            // ),
-            child: Icon(
-              Icons.ac_unit,
-              color: Colors.white,
-              size: 60,
-            ),
+            actions: [
+              Icon(
+                Icons.search,
+                size: 30,
+                color: Colors.white,
+              ),
+            ],
           ),
-        ),
-      ),
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              // 1st box
+              Expanded(
+                child: Container(
+                  color: Colors.amber.shade600,
+                ),
+              ),
+              // 2nd box
+              Expanded(
+                flex: 3,
+                child: Container(
+                  color: Colors.amber.shade400,
+                ),
+              ),
+              // 3rd box
+              Expanded(
+                child: Container(
+                  color: Colors.amber.shade200,
+                ),
+              ),
+            ],
+          )),
     );
   }
 }
