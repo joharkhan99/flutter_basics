@@ -28,13 +28,22 @@ class _MyAppState extends State<MyApp> {
             titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
           ),
           body: Center(
+              child: SizedBox(
+            width: double.infinity,
+            height: double.infinity,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.orange,
+                      ),
                       onPressed: () {
                         setState(() {
                           buttonText = "I was clicked";
@@ -51,10 +60,10 @@ class _MyAppState extends State<MyApp> {
                       child: Text(buttonText),
                     )
                   ],
-                )
+                ),
               ],
             ),
-          ),
+          )),
           bottomNavigationBar: BottomNavigationBar(
             items: const [
               BottomNavigationBarItem(
