@@ -28,42 +28,48 @@ class _MyAppState extends State<MyApp> {
             titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
           ),
           body: Center(
-              child: SizedBox(
-            width: double.infinity,
-            height: double.infinity,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: Colors.orange,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          buttonText = "I was clicked";
-                        });
-                      },
-                      child: Text(buttonText),
+            child: bottomNavIndex == 0
+                ? Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    color: Colors.red,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.white,
+                                backgroundColor: Colors.orange,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  buttonText = "I was clicked";
+                                });
+                              },
+                              child: Text(buttonText),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  buttonText = "I was clicked";
+                                });
+                              },
+                              child: Text(buttonText),
+                            )
+                          ],
+                        ),
+                      ],
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          buttonText = "I was clicked";
-                        });
-                      },
-                      child: Text(buttonText),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          )),
+                  )
+                : Image.asset("images/lotus-leaf.jpg"),
+            // : Image.network(
+            //     "https://images.pexels.com/photos/11292498/pexels-photo-11292498.jpeg"),
+          ),
           bottomNavigationBar: BottomNavigationBar(
             items: const [
               BottomNavigationBarItem(
