@@ -1,101 +1,128 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
+  String name = "Johar Khan";
+  int age = 23;
+  double pi = 3.14;
+  bool isBeginner = true;
 
-class _MyAppState extends State<MyApp> {
-  String buttonText = "Click Me";
-  int bottomNavIndex = 0;
+  /*
+    -> Basic Math Operators
+    + Addition  (1+1=2)
+    - Subtraction (2-1=1)
+    * Multiplication (2*2=4)
+    / Division (4/2=2)
+    % Modulus (5%2=1)
+
+    -> Comparison Operators
+    == Equal to (1==1) true
+    != Not equal to (1!=2) true
+    > Greater than (2>1) true
+    < Less than (1<2) true
+    >= Greater than or equal to (2>=2) true
+    <= Less than or equal to (1<=2) true
+
+    -> Logical Operators
+    && And (true && true) true
+    || Or (true || false) true
+    ! Not (!true) false
+
+    -> Control Flow
+    if (condition) {
+      // code to be executed if the condition is true
+    } else {
+      // code to be executed if the condition is false
+    }
+
+    -> Switch Case
+    switch (expression) {
+      case value1:
+        // code to be executed if expression is equal to value1
+        break;
+      case value2:
+        // code to be executed if expression is equal to value2
+        break;
+      default:
+        // code to be executed if expression doesn't match any value
+    }
+
+    -> Loop
+    for (int i = 0; i < 5; i++) {
+      // code to be executed
+    }
+    while (condition) {
+      // code to be executed
+    }
+    break; // to stop the loop
+
+    -> Function
+
+    -> Data Structure
+    List, Map, Set
+  */
+
+  List data = [1, 2, "Johar", 3.14, true];
+  List<int> numbers = [1, 2, 3, 4, 5];
+  List<String> names = ["Johar", "Khan", "Ali"];
+
+  Map user = {
+    "name": "Kamran butt",
+    "age": 23,
+    "isBeginner": true,
+  };
+
+  void greet() {
+    // print("Hello, I am Johar Khan");
+    for (int i = 0; i < data.length; i++) {
+      // print(data[i]);
+    }
+  }
+
+  int add(int a, int b) {
+    // print(user["name"]);
+    return a + b;
+  }
 
   @override
   Widget build(BuildContext context) {
+    // greet();
+    // print(add(20, 3));
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text('App Bar Title'),
-            backgroundColor: Colors.deepPurple.shade700,
-            titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
-          ),
-          body: Center(
-            child: bottomNavIndex == 0
-                ? Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    color: Colors.red,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.white,
-                                backgroundColor: Colors.orange,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  buttonText = "I was clicked";
-                                });
-                              },
-                              child: Text(buttonText),
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  buttonText = "I was clicked";
-                                });
-                              },
-                              child: Text(buttonText),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
-                : Image.asset("images/lotus-leaf.jpg"),
-            // : Image.network(
-            //     "https://images.pexels.com/photos/11292498/pexels-photo-11292498.jpeg"),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'Settings',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile',
-              )
-            ],
-            selectedLabelStyle: const TextStyle(
-              color: Colors.deepPurple,
-              fontSize: 20,
+        backgroundColor: Colors.amber.shade200,
+        body: Center(
+          child: Container(
+            height: 300,
+            width: 300,
+            decoration: BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.circular(20),
             ),
-            currentIndex: bottomNavIndex,
-            onTap: (index) {
-              setState(() {
-                bottomNavIndex = index;
-              });
-            },
-          )),
+            padding: EdgeInsets.all(20),
+            // child: Text(
+            //   "Hello, I am Johar Khan",
+            //   style: TextStyle(
+            //     fontSize: 20,
+            //     fontWeight: FontWeight.bold,
+            //     color: Colors.white,
+            //   ),
+            // ),
+            child: Icon(
+              Icons.ac_unit,
+              color: Colors.white,
+              size: 60,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
