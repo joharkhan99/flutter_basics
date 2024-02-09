@@ -98,6 +98,26 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.amber.shade200,
+        appBar: AppBar(
+          backgroundColor: Colors.amber.shade800,
+          title: Text("My First App"),
+          titleTextStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+          leading: Icon(
+            Icons.menu,
+            size: 30,
+            color: Colors.white,
+          ),
+          actions: [
+            Icon(
+              Icons.search,
+              size: 30,
+              color: Colors.white,
+            ),
+          ],
+        ),
         body: Center(
           child: Container(
             height: 300,
