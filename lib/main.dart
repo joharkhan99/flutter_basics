@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basics/pages/first_page.dart';
+import 'package:flutter_basics/pages/second_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -110,45 +112,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // greet();
-    // print(add(20, 3));
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        // backgroundColor: Colors.amber.shade200,
-        appBar: AppBar(
-          backgroundColor: Colors.purple.shade800,
-          title: Text("Flutter App"),
-          titleTextStyle: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-          leading: Icon(
-            Icons.menu,
-            size: 30,
-            color: Colors.white,
-          ),
-          actions: [
-            Icon(
-              Icons.search,
-              size: 30,
-              color: Colors.white,
-            ),
-          ],
-        ),
-        body: Center(
-          child: GestureDetector(
-            onDoubleTap: () => userTapped(),
-            child: Container(
-              width: 200,
-              height: 200,
-              color: Colors.purple.shade200,
-              child: Text("Click Me!"),
-            ),
-          ),
-        ),
-      ),
+      home: FirstPage(),
+      routes: {
+        "/firstpage": (context) => FirstPage(),
+        "/secondpage": (context) => SecondPage(),
+      },
     );
   }
 }
