@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basics/pages/first_page.dart';
+import 'package:flutter_basics/pages/profile_page.dart';
 import 'package:flutter_basics/pages/second_page.dart';
 
 void main() {
@@ -106,10 +107,6 @@ class MyApp extends StatelessWidget {
     return a + b;
   }
 
-  void userTapped() {
-    print("Hello, I am Johar Khan");
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -118,6 +115,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/firstpage": (context) => FirstPage(),
         "/secondpage": (context) => SecondPage(),
+        "/profilepage": (context) => ProfilePage(),
       },
     );
   }
