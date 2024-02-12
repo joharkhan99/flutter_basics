@@ -104,6 +104,10 @@ class MyApp extends StatelessWidget {
     return a + b;
   }
 
+  void userTapped() {
+    print("Hello, I am Johar Khan");
+  }
+
   @override
   Widget build(BuildContext context) {
     // greet();
@@ -112,33 +116,39 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          // backgroundColor: Colors.amber.shade200,
-          appBar: AppBar(
-            backgroundColor: Colors.purple.shade800,
-            title: Text("Flutter App"),
-            titleTextStyle: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-            leading: Icon(
-              Icons.menu,
+        // backgroundColor: Colors.amber.shade200,
+        appBar: AppBar(
+          backgroundColor: Colors.purple.shade800,
+          title: Text("Flutter App"),
+          titleTextStyle: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+          leading: Icon(
+            Icons.menu,
+            size: 30,
+            color: Colors.white,
+          ),
+          actions: [
+            Icon(
+              Icons.search,
               size: 30,
               color: Colors.white,
             ),
-            actions: [
-              Icon(
-                Icons.search,
-                size: 30,
-                color: Colors.white,
-              ),
-            ],
-          ),
-          body: ListView.builder(
-            itemCount: names.length,
-            itemBuilder: (context, index) => ListTile(
-              title: Text(names[index]),
+          ],
+        ),
+        body: Center(
+          child: GestureDetector(
+            onDoubleTap: () => userTapped(),
+            child: Container(
+              width: 200,
+              height: 200,
+              color: Colors.purple.shade200,
+              child: Text("Click Me!"),
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
