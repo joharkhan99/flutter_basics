@@ -69,7 +69,22 @@ class MyApp extends StatelessWidget {
 
   List data = [1, 2, "Johar", 3.14, true];
   List<int> numbers = [1, 2, 3, 4, 5];
-  List<String> names = ["Johar", "Khan", "Ali"];
+  List<String> names = [
+    "Johar",
+    "Khan",
+    "Ali",
+    "Ahmed",
+    "Kamran",
+    "Butt",
+    "Johar",
+    "Johar",
+    "Khan",
+    "Ali",
+    "Ahmed",
+    "Kamran",
+    "Butt",
+    "Johar"
+  ];
 
   Map user = {
     "name": "Kamran butt",
@@ -99,8 +114,8 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           // backgroundColor: Colors.amber.shade200,
           appBar: AppBar(
-            backgroundColor: Colors.amber.shade800,
-            title: Text("My First App"),
+            backgroundColor: Colors.purple.shade800,
+            title: Text("Flutter App"),
             titleTextStyle: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -118,29 +133,11 @@ class MyApp extends StatelessWidget {
               ),
             ],
           ),
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              // 1st box
-              Expanded(
-                child: Container(
-                  color: Colors.amber.shade600,
-                ),
-              ),
-              // 2nd box
-              Expanded(
-                flex: 3,
-                child: Container(
-                  color: Colors.amber.shade400,
-                ),
-              ),
-              // 3rd box
-              Expanded(
-                child: Container(
-                  color: Colors.amber.shade200,
-                ),
-              ),
-            ],
+          body: ListView.builder(
+            itemCount: names.length,
+            itemBuilder: (context, index) => ListTile(
+              title: Text(names[index]),
+            ),
           )),
     );
   }
